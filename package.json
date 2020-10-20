@@ -1,6 +1,6 @@
 {
   "name": "bunnycdn-storage-api-node-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Small and simple Node SDK to use the BunnyCDN api",
   "main": "./dist/main.js",
   "scripts": {
@@ -31,5 +31,9 @@
     "storage",
     "SDK",
     "storage API"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/steevepay/bunnycdn-storage-node-sdk/issues"
+  },
+  "homepage": "https://github.com/steevepay/bunnycdn-storage-node-sdk"
 }
