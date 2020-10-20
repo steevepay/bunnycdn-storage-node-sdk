@@ -1,0 +1,25 @@
+{
+  "name": "bunnycdn-storage-api-node-library",
+  "version": "1.0.0",
+  "description": "Small and simple node sdk to use the BunnyCDN api",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "lint": "eslint \"**/*.js\" \"**/*.js\" --fix && prettier --write \"**/*.js\" \"**/*.js\"",
+    "build": "rm -rf dist && mkdir dist && node ./build.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^8.2.0",
+    "simple-get": "^4.0.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.7.17",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-node": "^11.1.0",
+    "nock": "^13.0.4",
+    "prettier": "2.1.2"
+  }
+}
