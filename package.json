@@ -2,17 +2,20 @@
   "name": "bunnycdn-storage-api-node-sdk",
   "version": "1.0.0",
   "description": "Small and simple Node SDK to use the BunnyCDN api",
-  "main": "./src/index.js",
+  "main": "./dist/main.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
     "lint": "eslint \"**/*.js\" \"**/*.js\" --fix && prettier --write \"**/*.js\" \"**/*.js\"",
     "build": "rm -rf dist && mkdir dist && node ./build.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "steevepay",
+  "license": "MIT",
   "dependencies": {
     "simple-get": "^4.0.0"
   },
+  "files": [
+    "dist/*"
+  ],
   "devDependencies": {
     "esbuild": "^0.7.17",
     "eslint": "^7.11.0",
@@ -21,5 +24,12 @@
     "mocha": "^8.2.0",
     "nock": "^13.0.4",
     "prettier": "2.1.2"
-  }
+  },
+  "keywords": [
+    "bunnycdn",
+    "nodejs",
+    "storage",
+    "SDK",
+    "storage API"
+  ]
 }
