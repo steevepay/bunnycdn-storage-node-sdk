@@ -5,7 +5,7 @@ Small and simple node SDK to use the BunnyCDN Storage API 🐰
 ## Setup
 
 ```
-npm install --save bunnyCDNStorageSDK
+npm install --save bunnycdn-storage-api-node-sdk
 ```
 
 ## Examples
