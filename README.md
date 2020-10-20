@@ -20,7 +20,7 @@ const storage = bunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE);
 
 > Note: All function can be used with a promise or a callback as a response.
 
-### To upload a file
+### Upload a file
 
 
 ```javascript
@@ -43,7 +43,7 @@ storage.putFile(PATH, FILE_NAME, FILE_BUFFER, (err, resp, data) => {
 });
 ```
 
-### To get a file
+### Get a file
 
 ```javascript
 const FILE_NAME = 'superPicture.jpeg'
@@ -61,7 +61,7 @@ storage.getFile(PATH, FILE_NAME, (err, resp, data) => {
 });
 ```
 
-### To delete a file
+### Delete a file
 ```javascript
 // promise version
 storage.deleteFile(PATH, FILE_NAME).then(data => {
@@ -76,7 +76,7 @@ storage.deleteFile(PATH, FILE_NAME, (err, resp, data) => {
 });
 ```
 
-### To get files
+### Get files
 
 ```javascript
 storage.getFiles('/').then(data => {
@@ -85,19 +85,19 @@ storage.getFiles('/').then(data => {
   console.log(err);
 });
 ```
-### To update the storage zone
+### Update the storage zone
 
 ```js
 storage.setStorageZone('newStorageZone');
 ```
 
-### To update the API key
+### Update the API key
 
 ```js
 storage.setStorageKey('newStorageKey');
 ```
 
-### To update the API Base URL
+### Update the API Base URL
 
 ```js
 storage.setBaseURL('https://');
