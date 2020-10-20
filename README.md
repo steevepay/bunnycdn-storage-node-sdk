@@ -1,4 +1,4 @@
-# bunnyCDN Storage Node SDK
+# bunnyCDN Storage API Node SDK
 
 Small and simple node SDK to use the BunnyCDN Storage API 🐰
 
