@@ -1,6 +1,6 @@
 {
   "name": "bunnycdn-storage-api-node-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small and simple Node SDK to use the BunnyCDN api",
   "main": "./dist/main.js",
   "scripts": {
