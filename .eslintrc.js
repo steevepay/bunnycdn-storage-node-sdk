@@ -3,11 +3,13 @@ module.exports = {
     commonjs: true,
     es2021: true,
     node: true,
-    mocha: true
+    mocha: true,
   },
   extends: ["eslint:recommended", "prettier", "plugin:node/recommended"],
   parserOptions: {
     ecmaVersion: 12,
   },
-  rules: {},
+  rules: {
+    "node/no-unpublished-require": 0,
+  },
 };
