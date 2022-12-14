@@ -13,7 +13,7 @@ npm install --save bunnycdn-storage-api-node-sdk
 ### To initialise
 
 ```javascript
-const bunnyCDNStorage = require('bunnyCDNStorage');
+const bunnyCDNStorage = require('bunnycdn-storage-api-node-sdk');
 
 const storage = bunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE);
 ```
