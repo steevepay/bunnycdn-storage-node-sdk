@@ -1,4 +1,4 @@
-const get = require("simple-get");
+const rock = require("rock-req");
 
 /**
  * @description Constructor used to init the SDK
@@ -9,7 +9,7 @@ const get = require("simple-get");
 module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
   if (!API_STORAGE_KEY || !API_STORAGE_ZONE) {
     throw new Error(
-      "BunnyCDNStorage SDK: constructor error: storage key or storage zone missing."
+      "BunnyCDNStorage SDK: constructor error: storage key or storage zone missing.",
     );
   }
   const _config = {
@@ -33,7 +33,7 @@ module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
         method: "GET",
         headers: _httpHeader,
       };
-      return this.httpRequest(_req, cb);
+      return this.request(_req, cb);
     },
     /**
      * @description Return a list of file
@@ -49,7 +49,7 @@ module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
         },
         json: true,
       };
-      return this.httpRequest(_req, cb);
+      return this.request(_req, cb);
     },
     /**
      * @description Add or update a file
@@ -68,7 +68,7 @@ module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
         },
         body: buff,
       };
-      return this.httpRequest(_req, cb);
+      return this.request(_req, cb);
     },
     /**
      * @description delete a file
@@ -86,7 +86,7 @@ module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
         },
         json: true,
       };
-      return this.httpRequest(_req, cb);
+      return this.request(_req, cb);
     },
     /**
      * @description Remove the last slash on a path
@@ -143,11 +143,11 @@ module.exports = function BunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE) {
      * @param {Function} cb
      * @returns a callback function or a promise
      */
-    httpRequest: function (opts, cb) {
+    request: function (opts, cb) {
       return cb
-        ? get.concat(opts, cb)
+        ? rock(opts, cb)
         : new Promise((resolve, reject) => {
-            get.concat(opts, function (err, res, data) {
+            rock(opts, function (err, res, data) {
               if (err) {
                 return reject(err);
               }

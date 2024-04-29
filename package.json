@@ -1,29 +1,24 @@
 {
   "name": "bunnycdn-storage-api-node-sdk",
-  "version": "1.0.3",
-  "description": "Small and simple Node SDK to use the BunnyCDN api",
-  "main": "./dist/main.js",
+  "version": "2.0.0",
+  "description": "Node SDK to request BunnyCDN API",
+  "main": "./index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
-    "lint": "eslint \"**/*.js\" \"**/*.js\" --fix && prettier --write \"**/*.js\" \"**/*.js\"",
-    "build": "rm -rf dist && mkdir dist && node ./build.js"
+    "test": "./node_modules/mocha/bin/mocha.js",
+    "lint": "eslint --fix \"*.js\" && prettier --write \"**/*.js\" \"**/*.js\""
   },
   "author": "steevepay",
   "license": "MIT",
   "dependencies": {
-    "simple-get": "^4.0.0"
+    "rock-req": "5.1.3"
   },
-  "files": [
-    "dist/*"
-  ],
   "devDependencies": {
-    "esbuild": "^0.7.17",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^6.13.0",
-    "eslint-plugin-node": "^11.1.0",
-    "mocha": "^8.2.0",
-    "nock": "^13.0.4",
-    "prettier": "2.1.2"
+    "eslint": "9.1.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-node": "11.1.0",
+    "mocha": "10.4.0",
+    "nock": "13.5.4",
+    "prettier": "3.2.5"
   },
   "keywords": [
     "bunnycdn",
@@ -35,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/steevepay/bunnycdn-storage-node-sdk/issues"
   },
-  "homepage": "https://github.com/steevepay/bunnycdn-storage-node-sdk"
+  "homepage": "https://github.com/steevepay/bunnycdn-storage-node-sdk",
+  "engines": {
+    "node": ">=18.20.2"
+  }
 }

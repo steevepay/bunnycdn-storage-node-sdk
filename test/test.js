@@ -1,4 +1,4 @@
-const bunnyCDNStorage = require("../src/index");
+const bunnyCDNStorage = require("../index");
 const assert = require("assert");
 const nock = require("nock");
 const fs = require("fs");
@@ -13,21 +13,26 @@ describe("BunnyCDN Tests", function () {
 
   describe("Get files", function () {
     it("should retreive a list of files inside a storage zone [PROMISE]", (done) => {
-      const path = "/path/to/the/directory/";
+      const path = "/path/to/the/directory";
       nock(API_URL, {
         reqheaders: {
-          AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
+          accesskey: API_KEY,
           accept: "application/json",
         },
       })
         .get("/" + STORAGE_ZONE + path)
         .reply(200, MOCK_DATA);
 
-      storage.getFiles(path).then((data) => {
-        assert.strictEqual(JSON.stringify(data), JSON.stringify(MOCK_DATA));
-        done();
-      });
+      storage
+        .getFiles(path)
+        .then((data) => {
+          assert.strictEqual(JSON.stringify(data), JSON.stringify(MOCK_DATA));
+          done();
+        })
+        .catch((err) => {
+          assert.strictEqual(err, null);
+          done();
+        });
     });
 
     it("should retreive a list of files inside a storage zone [CALLBACK]", (done) => {
@@ -35,7 +40,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
           accept: "application/json",
         },
       })
@@ -58,7 +62,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
         },
       })
         .get("/" + STORAGE_ZONE + path + "/" + fileName)
@@ -77,7 +80,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
         },
       })
         .get("/" + STORAGE_ZONE + path + "/" + fileName)
@@ -102,7 +104,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
         },
       })
         .delete("/" + STORAGE_ZONE + path + "/" + fileName)
@@ -111,7 +112,7 @@ describe("BunnyCDN Tests", function () {
       storage.deleteFile(path, fileName).then((data) => {
         assert.strictEqual(
           JSON.stringify(data),
-          JSON.stringify(expectedResponse)
+          JSON.stringify(expectedResponse),
         );
         done();
       });
@@ -127,7 +128,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
         },
       })
         .delete("/" + STORAGE_ZONE + path + "/" + fileName)
@@ -137,7 +137,7 @@ describe("BunnyCDN Tests", function () {
         assert.strictEqual(err + "", "null");
         assert.strictEqual(
           JSON.stringify(data),
-          JSON.stringify(expectedResponse)
+          JSON.stringify(expectedResponse),
         );
         done();
       });
@@ -155,7 +155,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
           "content-length": mockBuffer.length,
         },
       })
@@ -180,7 +179,6 @@ describe("BunnyCDN Tests", function () {
       nock(API_URL, {
         reqheaders: {
           AccessKey: API_KEY,
-          "accept-encoding": "gzip, deflate",
           "content-length": mockBuffer.length,
         },
       })
@@ -232,11 +230,11 @@ describe("BunnyCDN Tests", function () {
     it("should remove the last slash at the end of the path", (done) => {
       assert.strictEqual(
         storage.checkPathLastChar("/this/is/a/path/"),
-        "/this/is/a/path"
+        "/this/is/a/path",
       );
       assert.strictEqual(
         storage.checkPathLastChar("/this/is/a/path"),
-        "/this/is/a/path"
+        "/this/is/a/path",
       );
       done();
     });
