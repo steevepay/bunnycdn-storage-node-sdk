@@ -103,14 +103,6 @@ storage.setStorageKey('newStorageKey');
 storage.setBaseURL('https://');
 ```
 
-## Build for production
-
-```
-$ npm run build
-```
-After running the command, the script is available on the folder "dist".
-To edit build options, look at the file "build.js" for more details.
-
 ## Run tests
 
 ```
