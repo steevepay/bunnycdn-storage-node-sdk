@@ -10,21 +10,14 @@ npm install --save bunnycdn-storage-api-node-sdk
 
 ## Examples
 
-### To initialise
-
-```javascript
-const bunnyCDNStorage = require('bunnycdn-storage-api-node-sdk');
-
-const storage = bunnyCDNStorage(API_STORAGE_KEY, API_STORAGE_ZONE);
-```
-
-> Note: All function can be used with a promise or a callback as a response.
+All function can be used with a promise or a callback as a response.
 
 ### Upload a file
 
 
 ```javascript
 const fs = require('fs');
+const storage = require('bunnycdn-storage-api-node-sdk')(API_STORAGE_KEY, API_STORAGE_ZONE);
 
 const PATH = '/path/';
 const FILE_NAME = 'superPicture.jpeg';
@@ -46,6 +39,7 @@ storage.putFile(PATH, FILE_NAME, FILE_BUFFER, (err, resp, data) => {
 ### Get a file
 
 ```javascript
+const storage = require('bunnycdn-storage-api-node-sdk')(API_STORAGE_KEY, API_STORAGE_ZONE);
 const FILE_NAME = 'superPicture.jpeg'
 
 // promise version
@@ -62,7 +56,10 @@ storage.getFile(PATH, FILE_NAME, (err, resp, data) => {
 ```
 
 ### Delete a file
+
 ```javascript
+const storage = require('bunnycdn-storage-api-node-sdk')(API_STORAGE_KEY, API_STORAGE_ZONE);
+
 // promise version
 storage.deleteFile(PATH, FILE_NAME).then(data => {
   console.log(data); // { HttpCode: 200, Message: 'File deleted successfuly.' }
@@ -79,6 +76,8 @@ storage.deleteFile(PATH, FILE_NAME, (err, resp, data) => {
 ### Get files
 
 ```javascript
+const storage = require('bunnycdn-storage-api-node-sdk')(API_STORAGE_KEY, API_STORAGE_ZONE);
+
 storage.getFiles('/').then(data => {
   console.log(data) // data is an array of objects, a list of files
 }).catch(err => {
