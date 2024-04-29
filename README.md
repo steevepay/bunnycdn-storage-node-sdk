@@ -1,6 +1,6 @@
-# bunnyCDN Storage API Node SDK
+# Node SDK for the BunnyCDN Edge Storage API 
 
-Small and simple node SDK to use the BunnyCDN Storage API 🐰
+Small and simple node SDK to use the BunnyCDN [Edge Storage API](https://docs.bunny.net/reference/storage-api) 🐰
 
 ## Setup
 

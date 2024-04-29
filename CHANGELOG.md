@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. This projec
 - Released the 2024/04/29
 - Updated NPM packages
 - Changed `simple-get` to `rock-req`
-- 
+- Removed `esbuild`
 
 ## 1.0.3 
 - Released the 2020/10/20
